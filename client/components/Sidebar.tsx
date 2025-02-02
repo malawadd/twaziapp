@@ -32,7 +32,7 @@ const routes = [
 
 function DesktopSidebar() {
     const pathname = usePathname();
-    const { address } = useAccount(); // Track wallet connection
+    const { address } = useAccount(); 
     // const activeRoute = routes.find((route) => pathname.includes(route.href)) || routes[0];
     const activeRoute = routes.find((route) => pathname === route.href) || routes[0];
 

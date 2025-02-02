@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { AppProviders } from "@/components/providers/AppProviders";
 import '@coinbase/onchainkit/styles.css'; 
+import WalletListener from "@/components/WalletListener";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AppProviders>
+        <WalletListener />
         {children}
         </AppProviders>
        </body>

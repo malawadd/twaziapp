@@ -1,4 +1,10 @@
-import React from "react";
+import { GetWorkflowsForUser } from "@/actions/workflows/getWorkFlowForUser";
+import { Skeleton } from "@/components/ui/skeleton";
+import { waitFor } from "@/lib/helper/waitFor";
+import React, { Suspense } from "react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { AlertCircle } from "lucide-react";
+
 
 function page() {
   return (
@@ -9,8 +15,32 @@ function page() {
           <p className="text-muted-foreground">Manage your workflows</p>
         </div>
       </div>
+
+      <div className="h-full py-6">
+  <Suspense fallback={<UserWorkflowsSkeleton />}>
+    <UserWorkflows />
+  </Suspense>
+</div>
+
     </div>
   );
+}
+
+function UserWorkflowsSkeleton() {
+    return (
+      <div className="space-y-2">
+        {[1, 2, 3, 4].map((i) => (
+          <Skeleton key={i} className="h-32 w-full bg-[#c8f088]" />
+        ))}
+      </div>
+    );
+  }
+  
+  async function UserWorkflows() {
+
+  await waitFor(50000);
+
+    return <div></div>
 }
 
 export default page;
