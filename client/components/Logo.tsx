@@ -12,7 +12,7 @@ function Logo({
   iconSize?: number;
 }) {
   return (
-    <Link href="/" className="flex items-center gap-3 p-2 border-4 border-black bg-[#a3e636] shadow-[4px_4px_0px_black]"> 
+    <Link href="/" className="flex items-center gap-3 p-2 border-4 border-black bg-[#a3e636] "> 
       <div className="p-2 bg-white border-4 border-black shadow-[4px_4px_0px_black]"> 
         <SquareDashedMousePointer size={iconSize} className="stroke-black" />
       </div>
