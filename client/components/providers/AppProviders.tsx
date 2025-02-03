@@ -1,25 +1,24 @@
 "use client";
 
 import { ThemeProvider } from "next-themes";
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { OnchainKitProvider } from '@coinbase/onchainkit';
-import { base, baseSepolia } from 'wagmi/chains'; // add baseSepolia for testing
- 
+import { base, baseSepolia } from 'wagmi/chains';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 export function AppProviders({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const [queryClient] = useState(() => new QueryClient());
+
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-    >
-         <OnchainKitProvider
+    <OnchainKitProvider
       apiKey={process.env.NEXT_PUBLIC_ONCHAINKIT_API_KEY}
-      chain={baseSepolia} // add baseSepolia for testing
+      chain={baseSepolia}
+
       config={{
         appearance: {
           name: 'tawazi',        // Displayed in modal header
@@ -27,13 +26,23 @@ export function AppProviders({
           mode: 'auto',                 // 'light' | 'dark' | 'auto'
           theme: 'default',             // 'default' or custom theme
         },
-        wallet: { 
+        wallet: {
           display: 'modal'
         },
       }}
     >
-      {children}
-      </OnchainKitProvider>
-    </ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+        >
+
+          {children}
+
+        </ThemeProvider>
+        <ReactQueryDevtools />
+      </QueryClientProvider>
+    </OnchainKitProvider>
   );
 }
