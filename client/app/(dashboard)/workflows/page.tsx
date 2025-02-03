@@ -70,7 +70,7 @@ function UserWorkflowsSkeleton() {
         );
       }
       
-      return <div></div>;
+      return <pre>{JSON.stringify(workflows, null, 4)}</pre>;
       
 
     return <div></div>
