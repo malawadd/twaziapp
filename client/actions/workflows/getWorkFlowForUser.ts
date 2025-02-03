@@ -7,10 +7,9 @@ export async function GetWorkflowsForUser() {
   const address = cookies().get('walletAddress')?.value;
 
   if (!address) {
-    console.log("Unauthenticated");
-    console.log(address);
+    throw new Error("Unauthenticated");
   }
-  console.log(address);
+
   return prisma.workflow.findMany({
     where: {
       userId: address,
