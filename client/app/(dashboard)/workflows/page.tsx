@@ -39,7 +39,7 @@ function UserWorkflowsSkeleton() {
   }
   
   async function UserWorkflows() {
-    await waitFor(10000);
+    // await waitFor(10000);
     const workflows = await GetWorkflowsForUser();
     if(!workflows){
         return(

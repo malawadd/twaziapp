@@ -4,7 +4,7 @@ import "./globals.css";
 import { AppProviders } from "@/components/providers/AppProviders";
 import '@coinbase/onchainkit/styles.css'; 
 import WalletListener from "@/components/WalletListener";
-
+import { WalletProvider } from "../contexts/WalletContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,8 +21,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AppProviders>
+        <WalletProvider>
         <WalletListener />
         {children}
+        </WalletProvider>
         </AppProviders>
        </body>
     </html>
