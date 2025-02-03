@@ -5,6 +5,7 @@ import { AppProviders } from "@/components/providers/AppProviders";
 import '@coinbase/onchainkit/styles.css'; 
 import WalletListener from "@/components/WalletListener";
 import { WalletProvider } from "../contexts/WalletContext";
+import { Toaster } from "@/components/ui/sonner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -27,6 +28,7 @@ export default function RootLayout({
         </WalletProvider>
         </AppProviders>
        </body>
+       <Toaster richColors/>
     </html>
   );
 }
