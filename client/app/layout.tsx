@@ -27,8 +27,9 @@ export default function RootLayout({
         {children}
         </WalletProvider>
         </AppProviders>
+        <Toaster richColors/>
        </body>
-       <Toaster richColors/>
+       
     </html>
   );
 }
