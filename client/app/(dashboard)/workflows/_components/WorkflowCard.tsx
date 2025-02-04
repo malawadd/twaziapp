@@ -23,6 +23,8 @@ import {
     DropdownMenuTrigger,
   } from '@/components/ui/dropdown-menu'
 import TooltipWrapper from "@/components/TooltipWrapper";
+import { useState } from "react";
+import DeleteWorkflowDialog from "./DeleteWorkflowDialog";
 
 const statusColors = {
     [WorkflowStatus.DRAFT]: "bg-[#212121] text-white",
@@ -79,15 +81,19 @@ function WorkflowCard({ workflow }: { workflow: Workflow }) {
                         <ShuffleIcon size={16} />
                         Edit
                     </Link>
-                    <WorkflowActions />
+                    <WorkflowActions workflowName={workflow.name}/>
                 </div>
             </CardContent>
         </Card>
     );
 }
 
-function WorkflowActions() {
+function WorkflowActions({workflowName}: {workflowName:string}) {
+    const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+
     return (
+        <>
+        <DeleteWorkflowDialog open={showDeleteDialog} setOpen={setShowDeleteDialog} workflowName={workflowName}/>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant={"neutral"} size={"sm"}>
@@ -101,7 +107,10 @@ function WorkflowActions() {
         <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuSeparator/>
-            <DropdownMenuItem className="text-destructive flex items-center gap-2">
+            <DropdownMenuItem className="text-destructive flex items-center gap-2"
+            onSelect={()=>{
+                setShowDeleteDialog((prev)=>(!prev));
+            }}>
                 <TrashIcon size={16} />
                 Delete
             </DropdownMenuItem>
@@ -112,6 +121,7 @@ function WorkflowActions() {
             </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
+      </>
     );
   }
   

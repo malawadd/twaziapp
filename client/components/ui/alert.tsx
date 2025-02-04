@@ -5,19 +5,19 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 
 const alertVariants = cva(
-  "relative w-full p-4 border-4 border-black shadow-[4px_4px_0px_black] rounded-none [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4",
+  'relative w-full rounded-base shadow-shadow font-heading border-2 border-border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-mtext',
   {
     variants: {
       variant: {
-        default: "bg-background text-foreground",
-        destructive: "bg-red-100 text-red-700 border-red-500 shadow-[4px_4px_0px_black] [&>svg]:text-red-700",
+        default: 'bg-main text-mtext',
+        destructive: 'bg-black text-white',
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: 'default',
     },
-  }
-);
+  },
+)
 
 const Alert = React.forwardRef<
   HTMLDivElement,
