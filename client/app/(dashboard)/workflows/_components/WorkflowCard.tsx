@@ -1,11 +1,28 @@
 "use client";
 
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { WorkflowStatus } from "@/types/workflow";
 import { Workflow } from "@prisma/client";
-import { FileTextIcon, PlayIcon } from "lucide-react";
+import { FileTextIcon, MoreVerticalIcon, PlayIcon, ShuffleIcon, TrashIcon } from "lucide-react";
 import Link from "next/link";
+
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuPortal,
+    DropdownMenuSeparator,
+    DropdownMenuShortcut,
+    DropdownMenuSub,
+    DropdownMenuSubContent,
+    DropdownMenuSubTrigger,
+    DropdownMenuTrigger,
+  } from '@/components/ui/dropdown-menu'
+import TooltipWrapper from "@/components/TooltipWrapper";
 
 const statusColors = {
     [WorkflowStatus.DRAFT]: "bg-[#212121] text-white",
@@ -48,9 +65,55 @@ function WorkflowCard({ workflow }: { workflow: Workflow }) {
                     </div>
                 </div>
 
+                <div className="flex items-center space-x-2">
+                    <Link
+                        href={`/workflow/editor/${workflow.id}`}
+                        className={cn(
+                            buttonVariants({
+                                variant: "neutral",
+                                size: "sm",
+                            }),
+                            "flex items-center gap-2"
+                        )}
+                    >
+                        <ShuffleIcon size={16} />
+                        Edit
+                    </Link>
+                    <WorkflowActions />
+                </div>
             </CardContent>
         </Card>
     );
 }
+
+function WorkflowActions() {
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant={"neutral"} size={"sm"}>
+            <TooltipWrapper content={"More actions"}>
+                <div className="flex items-center justify-center w-full h-full">
+              <MoreVerticalIcon size={18} />
+              </div>
+            </TooltipWrapper>
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+            <DropdownMenuSeparator/>
+            <DropdownMenuItem className="text-destructive flex items-center gap-2">
+                <TrashIcon size={16} />
+                Delete
+            </DropdownMenuItem>
+            <DropdownMenuItem className="flex items-center gap-2">
+                <FileTextIcon size={16} />
+                Duplicate 
+
+            </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    );
+  }
+  
 
 export default WorkflowCard;
