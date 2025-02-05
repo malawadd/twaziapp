@@ -5,12 +5,18 @@ import { TaskRegistry } from "@/lib/workflow/task/registry";
 import { NodeProps } from "@xyflow/react";
 import { memo } from "react";
 import { AppNodedata } from "@/types/appNode";
+import { NodeInputs, NodeInput } from "./NodeInputs";
 const NodeComponent = memo((props: NodeProps) => {
   const nodeData = props.data as AppNodedata;
+  const task = TaskRegistry[nodeData.type];
   return (
     <NodeCard nodeId={props.id} isSelected={!!props.selected} >
       <NodeHeader taskType={nodeData.type} nodeId={props.id} />
-    Appnode
+      <NodeInputs>
+        {task.inputs.map((input) => (
+          <NodeInput key={input.name} input={input} nodeId={props.id} />
+        ))}
+      </NodeInputs>
     </NodeCard>
   );
 });
