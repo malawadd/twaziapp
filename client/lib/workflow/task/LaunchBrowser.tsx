@@ -15,7 +15,13 @@ export const LaunchBrowserTask = {
       type: TaskParamType.STRING,
       helperText: "eg: https://ethglobal.com",
       required: true,
-      hideHandle: false,
+      hideHandle: true,
+    },
+  ] as const,
+  outputs: [
+    {
+      name: "Web page",
+      type: TaskParamType.BROWSER_INSTANCE,
     },
   ] as const,
  
