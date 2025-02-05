@@ -3,7 +3,7 @@ import { TaskType } from "./task";
 
 export interface AppNodedata {
     type: TaskType;
-    input: Record<string,string>;
+    inputs: Record<string,string>;
     [key: string]: any;
 }
 
