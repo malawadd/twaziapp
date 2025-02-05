@@ -1,7 +1,7 @@
 "use client";
 
 import { Workflow } from "@prisma/client";
-import { Background, BackgroundVariant, Controls, ReactFlow, useEdgesState, useNodesState, useReactFlow } from "@xyflow/react";
+import { Background, BackgroundVariant, Connection, Controls, Edge, ReactFlow, addEdge, useEdgesState, useNodesState, useReactFlow } from "@xyflow/react";
 import React, { useCallback, useEffect } from "react";
 import "@xyflow/react/dist/style.css";
 import { CreateFlowNode } from "@/lib/workflow/createFlowNode";
@@ -16,7 +16,7 @@ const nodeTypes = {
   const fitViewOptions = { padding: 1 };
 function FlowEditor({ workflow }: { workflow: Workflow }) {
   const [nodes, setNodes, onNodesChange] = useNodesState<AppNode>([]);
-  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([]);
   const { setViewport, screenToFlowPosition, updateNodeData } = useReactFlow();
 
   useEffect(() => {
@@ -53,6 +53,24 @@ function FlowEditor({ workflow }: { workflow: Workflow }) {
     [screenToFlowPosition, setNodes]
   );
 
+  const onConnect = useCallback(
+    (connection: Connection) => {
+      setEdges((eds) => addEdge({ ...connection, animated: true }, eds));
+      if (!connection.targetHandle) return;
+      // Remove input value if is present on connection
+      const node = nodes.find((nd) => nd.id === connection.target);
+      if (!node) return;
+      const nodeInputs = node.data.inputs;
+      updateNodeData(node.id, {
+        inputs: {
+          ...nodeInputs,
+          [connection.targetHandle]: "",
+        },
+      });
+    },
+    [setEdges, updateNodeData, nodes]
+  );
+
   return (
     <main className="h-full w-full">
       <ReactFlow 
@@ -65,6 +83,8 @@ function FlowEditor({ workflow }: { workflow: Workflow }) {
       fitView
       onDragOver={onDragOver}
       onDrop={onDrop}
+      onConnect={onConnect}
+
       />
       <Controls position="top-left" fitViewOptions={fitViewOptions} />
       <Background variant={BackgroundVariant.Dots} gap={12} />
