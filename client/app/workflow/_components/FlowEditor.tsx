@@ -12,6 +12,7 @@ const nodeTypes = {
     TwaziNode: NodeComponent,
   };
 
+  const fitViewOptions = { padding: 1 };
 function FlowEditor({ workflow }: { workflow: Workflow }) {
   const [nodes, setNodes, onNodesChange] = useNodesState([
         CreateFlowNode(TaskType.LAUNCH_BROWSER)
@@ -27,8 +28,10 @@ function FlowEditor({ workflow }: { workflow: Workflow }) {
       onEdgesChange={onEdgesChange}
       onNodesChange={onNodesChange}
       nodeTypes={nodeTypes}
+      fitViewOptions={fitViewOptions}
+      fitView
       />
-      <Controls position="top-left" />
+      <Controls position="top-left" fitViewOptions={fitViewOptions} />
       <Background variant={BackgroundVariant.Dots} gap={12} />
     </main>
   );

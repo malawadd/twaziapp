@@ -41,7 +41,7 @@ function StringParam({
         onBlur={(e: any) => updateNodeParamValue(e.target.value)}
       />
       {param.helperText && (
-        <p className="text-muted-foreground px-2">{param.helperText}</p>
+        <p className="text-muted-foreground px-2 dark:text-gray-400">{param.helperText}</p>
       )}
     </div>
   );
