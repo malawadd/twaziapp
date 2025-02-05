@@ -7,6 +7,7 @@ import { AppNode } from "@/types/appNode";
 import { TaskParam, TaskParamType } from "@/types/task";
 import { useReactFlow } from "@xyflow/react";
 import { useCallback } from "react";
+import BrowserInstanceParam from "./nodes/param/BrowserInstanceParam";
 
 function NodeParamField({
   param,
@@ -42,6 +43,15 @@ function NodeParamField({
           value={value}
           updateNodeParamValue={updateNodeParamValue}
           disabled={disabled}
+        />
+      );
+    
+      case TaskParamType.BROWSER_INSTANCE:
+      return (
+        <BrowserInstanceParam
+          param={param}
+          value={""}
+          updateNodeParamValue={updateNodeParamValue}
         />
       );
    
