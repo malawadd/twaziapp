@@ -6,6 +6,7 @@ import { ReactFlowProvider } from "@xyflow/react";
 import FlowEditor from "./FlowEditor";
 import { WorkflowStatus } from "@/types/workflow";
 import Topbar from "@/app/workflow/_components/topbar/Topbar";
+import TaskMenu from "./TaskMenu";
 
 function Editor({ workflow }: { workflow: Workflow }) {
   return (
@@ -17,9 +18,12 @@ function Editor({ workflow }: { workflow: Workflow }) {
             workflowId={workflow.id}
             isPublished={workflow.status === WorkflowStatus.PUBLISHED}
           />
-        <section className="flex h-full overflow-auto relative  pt-[60px] ">
-          <FlowEditor workflow={workflow} />
-        </section>
+           <div className="flex flex-row h-full">
+          <TaskMenu /> {/* Task Menu on the left */}
+          <section className="flex-1 overflow-auto relative">
+            <FlowEditor workflow={workflow} />
+          </section>
+        </div>
       </div>
     </ReactFlowProvider>
   );
