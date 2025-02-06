@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeftIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React from "react";
+import ExecuteBtn from "./ExecuteBtn";
 
 interface Props {
   title: string;
@@ -44,7 +45,7 @@ export default function Topbar({
       <div className="flex gap-1 flex-1 justify-end">
         {hideButtons === false && (
           <>
-  
+            <ExecuteBtn workflowId={workflowId} />
             {!isPublished && (
               <>
                 <SaveBtn workflowId={workflowId} />
