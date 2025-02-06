@@ -15,7 +15,7 @@ import { CoinsIcon } from "lucide-react";
 
 export default function TaskMenu() {
   return (
-    <aside className="w-[340px] min-w-[340px] max-w-[340px] border-r-4 border-black h-full p-2 px-4 overflow-y-auto bg-background shadow-[4px_4px_0px_black] z-20">
+    <aside className="w-[340px] min-w-[340px] max-w-[340px] border-r-4 border-black h-full p-2 px-4 overflow-y-auto bg-background overflow-auto shadow-[4px_4px_0px_black] z-60">
       <Accordion
         type="multiple"
         className="w-full"

@@ -17,6 +17,7 @@ function Editor({ workflow }: { workflow: Workflow }) {
             subtitle={workflow.name}
             workflowId={workflow.id}
             isPublished={workflow.status === WorkflowStatus.PUBLISHED}
+            
           />
            <div className="flex flex-row h-full">
           <TaskMenu /> {/* Task Menu on the left */}
