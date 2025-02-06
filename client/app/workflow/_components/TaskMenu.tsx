@@ -66,7 +66,7 @@ function TaskMenuBtn({ taskType }: { taskType: TaskType }) {
       </div>
       <Badge className="gap-2 flex items-center border-2 border-black bg-white text-black dark:bg-black dark:text-white dark:border-white shadow-[2px_2px_0px_black]">
         <CoinsIcon size={16} />
-        {10}
+        {task.credits}
       </Badge>
     </Button>
 

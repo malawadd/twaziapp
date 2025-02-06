@@ -41,7 +41,7 @@ function NodeHeader({
         )}
 
         <Badge className="gap-2 flex items-center text-xs border-2 border-black shadow-[2px_2px_0px_black] rounded-none">
-          <CoinsIcon size={16} /> TODO
+          <CoinsIcon size={16} /> {task.credits}
         </Badge>
 
         {!task.isEntryPoint && (
