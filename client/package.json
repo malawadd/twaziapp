@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "twazi-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc --noEmit",
- "generate": "prisma generate",
-    "postinstall": "prisma generate",
+    "generate": "prisma generate",
     "lint": "next lint"
   },
   "dependencies": {
@@ -89,5 +88,8 @@
     "prisma": "^6.3.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "prisma": {
+    "schema": "prisma/schema.prisma"
   }
 }
