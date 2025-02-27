@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PORT=${PORT}  # Pass PORT dynamically from .env
+    ports:
+      - "${PORT}:${PORT}"  # Map host port to container port dynamically
+    env_file:
+      - .env  # Load environment variables from .env
+    command: ["sh", "-c", "npm run start -- -p $PORT"]

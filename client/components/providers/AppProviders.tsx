@@ -5,7 +5,7 @@ import { useState, type ReactNode } from 'react';
 import { OnchainKitProvider } from '@coinbase/onchainkit';
 import { base, baseSepolia } from 'wagmi/chains';
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+// import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import "../../app/globals.css";
 
 export function AppProviders({
@@ -42,7 +42,7 @@ export function AppProviders({
           {children}
 
         </ThemeProvider>
-        <ReactQueryDevtools />
+        {/* <ReactQueryDevtools /> */}
       </QueryClientProvider>
     </OnchainKitProvider>
   );

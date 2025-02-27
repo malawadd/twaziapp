@@ -17,7 +17,7 @@ import { MobileSidebar } from "./Sidebar";
   
     return (
       <div className="flex items-center flex-start">
-        <MobileSidebar /> 
+        {/* <MobileSidebar />  */}
         <Breadcrumb>
         <BreadcrumbList>
   {paths?.map((path, index) => (

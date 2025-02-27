@@ -38,7 +38,7 @@ function DesktopSidebar() {
 
 
     return (
-        <div className="hidden md:flex flex-col min-w-[280px] max-w-[280px] h-screen bg-primary/5 dark:bg-secondary/30 border-r-4 border-black ">
+        <div className=" flex-col min-w-[280px] max-w-[280px] h-screen bg-primary/5 dark:bg-secondary/30 border-r-4 border-black ">
             <div className="flex items-center justify-center p-4 border-b-4 border-black">
                 <Logo />
             </div>
