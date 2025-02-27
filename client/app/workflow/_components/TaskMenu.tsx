@@ -39,6 +39,39 @@ export default function TaskMenu() {
           </AccordionContent>
         </AccordionItem>
 
+        <AccordionItem value="extraction">
+        <AccordionTrigger className="font-bold border-b-2 border-black bg-gray-100 dark:bg-gray-800 dark:text-white shadow-[2px_2px_0px_black] p-2 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
+            Web3 Elements
+          </AccordionTrigger>
+
+          <AccordionContent className="flex flex-col gap-1">
+            <TaskMenuBtn taskType={TaskType.SMART_CONTRACT_INTERACTION} />
+
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="extraction">
+          <AccordionTrigger className="font-bold border-b-2 border-black bg-gray-100 dark:bg-gray-800 dark:text-white shadow-[2px_2px_0px_black] p-2 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
+            tasks Agents
+          </AccordionTrigger>
+
+          <AccordionContent className="flex flex-col gap-1">
+            <TaskMenuBtn taskType={TaskType.EXTRACT_DATA_WITH_AI} />
+            
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="extraction">
+          <AccordionTrigger className="font-bold border-b-2 border-black bg-gray-100 dark:bg-gray-800 dark:text-white shadow-[2px_2px_0px_black] p-2 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
+            On chain AI Agents
+          </AccordionTrigger>
+
+          <AccordionContent className="flex flex-col gap-1">
+            <TaskMenuBtn taskType={TaskType.AGENTKIT_SWAP} />
+            
+          </AccordionContent>
+        </AccordionItem>
+
       </Accordion>
     </aside>
   );

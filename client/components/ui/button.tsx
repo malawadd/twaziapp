@@ -14,9 +14,9 @@ const buttonVariants = cva(
           'text-mtext bg-main border-2 border-border shadow-shadow hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none',
         noShadow:
           'text-mtext bg-main border-2 border-border',
-        outline:
-          'text-mtext bg-main border-2 border-border',
         neutral:
+          'bg-bw text-text border-2 border-border shadow-shadow hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none',
+        outline:
           'bg-bw text-text border-2 border-border shadow-shadow hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none',
         reverse:
           'text-mtext bg-main border-2 border-border hover:translate-x-reverseBoxShadowX hover:translate-y-reverseBoxShadowY hover:shadow-shadow',
@@ -26,7 +26,13 @@ const buttonVariants = cva(
           "gap-2 !justify-start bg-primary text-primary-foreground hover:bg-primary/90",
         ghost:
           'bg-transparent text-mtext border-2 border-border shadow-none hover:bg-border hover:text-white transition-all duration-200',
-        brutalistRedPulse:
+        secondary:
+          'bg-transparent text-mtext border-2 border-border shadow-none hover:bg-border hover:text-white transition-all duration-200',
+          brutalistRedPulse:
+          'bg-red-500 text-white border-4 border-black shadow-[4px_4px_0px_black] rounded-none ' +
+          'hover:animate-pulse hover:bg-red-600 hover:shadow-none transition-transform duration-200 ' +
+          'active:bg-black active:text-red-500 active:border-red-500',
+        destructive:
           'bg-red-500 text-white border-4 border-black shadow-[4px_4px_0px_black] rounded-none ' +
           'hover:animate-pulse hover:bg-red-600 hover:shadow-none transition-transform duration-200 ' +
           'active:bg-black active:text-red-500 active:border-red-500',

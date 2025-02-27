@@ -99,7 +99,7 @@ function DesktopSidebar() {
 
 export function MobileSidebar() {
     const [isOpen, setOpen] = useState(false);
-    const pathname = usePathname();
+    const pathname = usePathname() ?? "";
     const { address } = useAccount();
     const activeRoute = routes.find((route) => pathname.includes(route.href)) || routes[0];
 

@@ -7,9 +7,12 @@ import FlowEditor from "./FlowEditor";
 import { WorkflowStatus } from "@/types/workflow";
 import Topbar from "@/app/workflow/_components/topbar/Topbar";
 import TaskMenu from "./TaskMenu";
+import { FlowValidationContextProvider } from "@/components/context/FlowValidationContext";
+
 
 function Editor({ workflow }: { workflow: Workflow }) {
   return (
+    <FlowValidationContextProvider>
     <ReactFlowProvider>
        <div className="flex flex-col h-full w-full overflow-hidden">
       <Topbar
@@ -27,6 +30,7 @@ function Editor({ workflow }: { workflow: Workflow }) {
         </div>
       </div>
     </ReactFlowProvider>
+    </FlowValidationContextProvider>
   );
 }
 

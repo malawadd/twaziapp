@@ -8,6 +8,7 @@ import { TaskParam, TaskParamType } from "@/types/task";
 import { useReactFlow } from "@xyflow/react";
 import { useCallback } from "react";
 import BrowserInstanceParam from "./nodes/param/BrowserInstanceParam";
+import CredentialsParam from "@/app/workflow/_components/nodes/param/CredentialsParam";
 
 function NodeParamField({
   param,
@@ -52,6 +53,15 @@ function NodeParamField({
           param={param}
           value={""}
           updateNodeParamValue={updateNodeParamValue}
+        />
+      );
+      case TaskParamType.CREDENTIAL:
+      return (
+        <CredentialsParam
+          param={param}
+          value={value}
+          updateNodeParamValue={updateNodeParamValue}
+          disabled={disabled}
         />
       );
    

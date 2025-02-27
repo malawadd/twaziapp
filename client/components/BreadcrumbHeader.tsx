@@ -20,7 +20,7 @@ import { MobileSidebar } from "./Sidebar";
         <MobileSidebar /> 
         <Breadcrumb>
         <BreadcrumbList>
-  {paths.map((path, index) => (
+  {paths?.map((path, index) => (
     <React.Fragment key={index}>
       <BreadcrumbItem>
         <BreadcrumbLink className="capitalize" href={`/${path}`}>

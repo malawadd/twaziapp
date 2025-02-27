@@ -35,9 +35,21 @@ function NodeHeader({
 
       <div className="flex gap-2 items-center">
         {task.isEntryPoint && (
+          <>
           <Badge className="border-2 border-black shadow-[2px_2px_0px_black] rounded-none bg-[#a3e636] text-black">
             Entry Point
           </Badge>
+          <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => {
+            deleteElements({ nodes: [{ id: nodeId }] });
+          }}
+          className="border-2 border-black shadow-[2px_2px_0px_black] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-transform bg-red-500 text-white rounded-none"
+        >
+          <TrashIcon size={14} />
+        </Button>
+        </>
         )}
 
         <Badge className="gap-2 flex items-center text-xs border-2 border-black shadow-[2px_2px_0px_black] rounded-none">
