@@ -8,6 +8,9 @@ import { ExtractTextFromElementTask } from "./ExtractTextFromElement";
 import { ExtractDataWithAITask } from "@/lib/workflow/task/ExtractDataWithAI";
 import { AgentKitSwapTask } from "./AgentKitSwapTask";
 import { SmartContractInteractionTask } from "./SmartContractInteractionTask";
+import { CreateRecallBucketTask } from "./CreateRecallBucketTask";
+import { StoreAIOutputInBucketTask } from "./StoreAIOutputInBucketTask";
+import { ReasoningLLMTask } from "./ReasoningLLMTask";
 
 type Registry = {
   [K in TaskType]: WorkflowTask & { type: K };
@@ -20,5 +23,7 @@ export const TaskRegistry:Registry = {
   EXTRACT_DATA_WITH_AI: ExtractDataWithAITask,
   AGENTKIT_SWAP:AgentKitSwapTask,
   SMART_CONTRACT_INTERACTION:SmartContractInteractionTask,
-  
+  CREATE_RECALL_BUCKET:CreateRecallBucketTask,
+  STORE_AI_OUTPUT_RECALL:StoreAIOutputInBucketTask,
+  REASONING_LLM:ReasoningLLMTask
 };
