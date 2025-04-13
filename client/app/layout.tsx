@@ -13,7 +13,6 @@ export const metadata: Metadata = {
   description: "agents workflows",
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{

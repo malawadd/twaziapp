@@ -41,24 +41,21 @@ export default function TaskMenu() {
 
         <AccordionItem value="extraction">
         <AccordionTrigger className="font-bold border-b-2 border-black bg-gray-100 dark:bg-gray-800 dark:text-white shadow-[2px_2px_0px_black] p-2 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
-            Recal Tasks
+            Web3 Elements
           </AccordionTrigger>
 
           <AccordionContent className="flex flex-col gap-1">
-            <TaskMenuBtn taskType={TaskType.CREATE_RECALL_BUCKET} />
-            <TaskMenuBtn taskType={TaskType.STORE_AI_OUTPUT_RECALL} />
-            
+            <TaskMenuBtn taskType={TaskType.SMART_CONTRACT_INTERACTION} />
 
           </AccordionContent>
         </AccordionItem>
 
         <AccordionItem value="extraction">
           <AccordionTrigger className="font-bold border-b-2 border-black bg-gray-100 dark:bg-gray-800 dark:text-white shadow-[2px_2px_0px_black] p-2 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
-            Agents
+            tasks Agents
           </AccordionTrigger>
 
           <AccordionContent className="flex flex-col gap-1">
-          <TaskMenuBtn taskType={TaskType.REASONING_LLM} />
             <TaskMenuBtn taskType={TaskType.EXTRACT_DATA_WITH_AI} />
             
           </AccordionContent>
@@ -66,11 +63,11 @@ export default function TaskMenu() {
 
         <AccordionItem value="extraction">
           <AccordionTrigger className="font-bold border-b-2 border-black bg-gray-100 dark:bg-gray-800 dark:text-white shadow-[2px_2px_0px_black] p-2 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
-            web3 tasks
+            On chain AI Agents
           </AccordionTrigger>
 
           <AccordionContent className="flex flex-col gap-1">
-          <TaskMenuBtn taskType={TaskType.SMART_CONTRACT_INTERACTION} />
+            <TaskMenuBtn taskType={TaskType.AGENTKIT_SWAP} />
             
           </AccordionContent>
         </AccordionItem>

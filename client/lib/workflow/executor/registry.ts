@@ -8,9 +8,6 @@ import { WorkflowTask } from "@/types/workflow";
 import { ExtractDataWithAiExecutor } from "./ExtractDataWithAiExecutor";
 import { AgentKitSwapExecutor } from "./AgentKitSwapExecutor";
 import { SmartContractInteractionExecutor } from "./SmartContractInteractionExecutor";
-import { CreateRecallBucketExecutor } from "./CreateRecallBucketExecutor";
-import { StoreAIOutputInBucketExecutor } from "./StoreAIOutputInBucketExecutor";
-import { ReasoningLLMExecutor } from "./ReasoningLLMExecutor";
 
 
 type ExecutorFn<T extends WorkflowTask> = (
@@ -27,9 +24,6 @@ export const ExecutorRegistry: RegistryType = {
   EXTRACT_TEXT_FROM_ELEMENT: ExtractTextFromElementExecutor,
   EXTRACT_DATA_WITH_AI: ExtractDataWithAiExecutor,
   AGENTKIT_SWAP : AgentKitSwapExecutor,
-  SMART_CONTRACT_INTERACTION: SmartContractInteractionExecutor,
-  CREATE_RECALL_BUCKET:CreateRecallBucketExecutor,
-  STORE_AI_OUTPUT_RECALL: StoreAIOutputInBucketExecutor,
-  REASONING_LLM: ReasoningLLMExecutor
+  SMART_CONTRACT_INTERACTION: SmartContractInteractionExecutor
   
 };
