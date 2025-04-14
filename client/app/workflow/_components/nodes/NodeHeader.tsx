@@ -7,7 +7,7 @@ import { TaskRegistry } from "@/lib/workflow/task/registry";
 import { AppNode } from "@/types/appNode";
 import { TaskType } from "@/types/task";
 import { useReactFlow } from "@xyflow/react";
-import { CoinsIcon, CopyIcon, GripVerticalIcon, TrashIcon } from "lucide-react";
+import { CoinsIcon, CopyIcon, GripVerticalIcon, PlayIcon, TrashIcon } from "lucide-react";
 import React from "react";
 
 function NodeHeader({
@@ -18,7 +18,31 @@ function NodeHeader({
   nodeId: string;
 }) {
   const task = TaskRegistry[taskType];
-  const { deleteElements, getNode, addNodes } = useReactFlow();
+  const { deleteElements, getNode, addNodes, setNodes } = useReactFlow();
+  const node = getNode(nodeId) as AppNode;
+  const isEntryPoint = node?.data?.isEntryPoint || false;
+
+  const toggleEntryPoint = () => {
+    setNodes((nodes) =>
+      nodes.map((n) =>
+        n.id === nodeId
+          ? {
+              ...n,
+              data: {
+                ...n.data,
+                isEntryPoint: !n.data.isEntryPoint,
+              },
+            }
+          : {
+              ...n,
+              data: {
+                ...n.data,
+                isEntryPoint: false, // Ensure only one entry point
+              },
+            }
+      )
+    );
+  };
 
   return (
     <div
@@ -34,12 +58,22 @@ function NodeHeader({
       </div>
 
       <div className="flex gap-2 items-center">
-        {task.isEntryPoint && (
-          <>
-          <Badge className="border-2 border-black shadow-[2px_2px_0px_black] rounded-none bg-[#a3e636] text-black">
-            Entry Point
-          </Badge>
-          <Button
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={toggleEntryPoint}
+          className={`border-2 border-black shadow-[2px_2px_0px_black] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-transform rounded-none ${
+            isEntryPoint ? "bg-green-500 text-white hover:bg-green-600" : "bg-gray-200 text-black hover:bg-gray-300"
+          }`}
+        >
+          <PlayIcon size={14} className={isEntryPoint ? "text-white" : "text-black"} />
+        </Button>
+
+        <Badge className="gap-2 flex items-center text-xs border-2 border-black shadow-[2px_2px_0px_black] rounded-none">
+          <CoinsIcon size={16} /> {task.credits}
+        </Badge>
+
+        <Button
           variant="ghost"
           size="icon"
           onClick={() => {
@@ -49,45 +83,24 @@ function NodeHeader({
         >
           <TrashIcon size={14} />
         </Button>
-        </>
-        )}
 
-        <Badge className="gap-2 flex items-center text-xs border-2 border-black shadow-[2px_2px_0px_black] rounded-none">
-          <CoinsIcon size={16} /> {task.credits}
-        </Badge>
-
-        {!task.isEntryPoint && (
-          <>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => {
-                deleteElements({ nodes: [{ id: nodeId }] });
-              }}
-              className="border-2 border-black shadow-[2px_2px_0px_black] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-transform bg-red-500 text-white rounded-none"
-            >
-              <TrashIcon size={14} />
-            </Button>
-
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => {
-                const node = getNode(nodeId) as AppNode;
-                const newX = node.position.x;
-                const newY = node.position.y + node.measured?.height! + 20;
-                const newNode = CreateFlowNode(node.data.type, {
-                  x: newX,
-                  y: newY,
-                });
-                addNodes([newNode]);
-              }}
-              className="border-2 border-black shadow-[2px_2px_0px_black] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-transform bg-blue-500 text-white rounded-none"
-            >
-              <CopyIcon size={14} />
-            </Button>
-          </>
-        )}
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => {
+            const node = getNode(nodeId) as AppNode;
+            const newX = node.position.x;
+            const newY = node.position.y + node.measured?.height! + 20;
+            const newNode = CreateFlowNode(node.data.type, {
+              x: newX,
+              y: newY,
+            });
+            addNodes([newNode]);
+          }}
+          className="border-2 border-black shadow-[2px_2px_0px_black] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-transform bg-blue-500 text-white rounded-none"
+        >
+          <CopyIcon size={14} />
+        </Button>
 
         <Button
           variant="ghost"

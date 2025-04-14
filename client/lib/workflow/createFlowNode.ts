@@ -12,6 +12,7 @@ export function CreateFlowNode(
     data: {
       type: nodeType,
       inputs: {},
+      isEntryPoint: false,
     },
     position: position ?? { x: 0, y: 0 },
   };

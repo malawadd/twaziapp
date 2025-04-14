@@ -23,9 +23,7 @@ export function FlowToExecutionPlan(
   nodes: AppNode[],
   edges: Edge[]
 ): FlowToExecutionPlanType {
-  const entryPoint = nodes.find(
-    (node) => TaskRegistry[node.data.type].isEntryPoint
-  );
+  const entryPoint = nodes.find((node) => node.data.isEntryPoint);
 
   if (!entryPoint) {
     return {

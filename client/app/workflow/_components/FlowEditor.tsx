@@ -24,7 +24,27 @@ const nodeTypes = {
 function FlowEditor({ workflow }: { workflow: Workflow }) {
   const [nodes, setNodes, onNodesChange] = useNodesState<AppNode>([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([]);
-  const { setViewport, screenToFlowPosition, updateNodeData } = useReactFlow();
+  const { setViewport, screenToFlowPosition } = useReactFlow();
+
+  const updateNodeData = (nodeId: string, newData: Partial<AppNode["data"]>) => {
+    setNodes((nodes) =>
+      nodes.map((node) =>
+        node.id === nodeId
+          ? {
+              ...node,
+              data: {
+                ...node.data,
+                ...newData,
+              },
+            }
+          : node
+      )
+    );
+  };
+
+  // Pass `updateNodeData` to React Flow context
+  const reactFlowInstance = useReactFlow();
+  reactFlowInstance.updateNodeData = updateNodeData;
 
   useEffect(() => {
     try {
