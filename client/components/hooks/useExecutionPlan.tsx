@@ -7,6 +7,7 @@ import { AppNode } from "@/types/appNode";
 import { useReactFlow } from "@xyflow/react";
 import { useCallback } from "react";
 import { toast } from "sonner";
+import { CoinsIcon, CopyIcon, GripVerticalIcon, PlayIcon, TrashIcon } from "lucide-react";
 
 const useExecutionPlan = () => {
   const { toObject } = useReactFlow();
@@ -16,7 +17,7 @@ const useExecutionPlan = () => {
     (error: any) => {
       switch (error.type) {
         case FlowToExecutionPlanValidationError.NO_ENTRY_POINT:
-          toast.error("No entry point found");
+          toast.error("No entry point found. Hit the ▶️ Play icon on the node you want to start from. ");
           break;
         case FlowToExecutionPlanValidationError.INVALID_INPUTS:
           toast.error("Not all inputs values are set");

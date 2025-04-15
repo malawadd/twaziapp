@@ -34,42 +34,35 @@ export default function CreditUsageChart({ data }: { data: CreditUsage[] }) {
               axisLine={false}
               tickFormatter={(value) => `${value}`}
             />
-            <Tooltip
-              content={({ active, payload }) => {
-                if (active && payload && payload.length) {
-                  return (
-                    <div className="rounded-lg border border-black dark:border-[#facc15] bg-background p-2 shadow-sm">
-                      <div className="grid grid-cols-2 gap-2">
-                        <div className="flex flex-col">
-                          <span className="text-[0.70rem] uppercase text-muted-foreground">
-                            Date
-                          </span>
-                          <span className="font-bold text-sm">
-                            {new Date(
-                              payload[0].payload.date
-                            ).toLocaleDateString()}
-                          </span>
-                        </div>
-                        <div className="flex flex-col">
-                          <span className="text-[0.70rem] uppercase text-muted-foreground">
-                            Credits
-                          </span>
-                          <span className="font-bold text-sm">
-                            {payload[0].value}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                }
-                return null;
-              }}
-            />
+           <Tooltip
+  content={({ active, payload }) => {
+    if (active && payload && payload.length) {
+      const item = payload[0].payload;
+      return (
+        <div className="rounded-md border border-black bg-white dark:bg-black text-black dark:text-white p-3 shadow-md min-w-[160px]">
+          <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase mb-1">
+            Date
+          </div>
+          <div className="text-sm font-bold mb-2">
+            {new Date(item.date).toLocaleDateString()}
+          </div>
+          <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase mb-1">
+            Credits
+          </div>
+          <div className="text-sm font-bold">
+            {item.credits}
+          </div>
+        </div>
+      );
+    }
+    return null;
+  }}
+/>
             <Area
               dataKey="credits"
               fill="currentColor"
               stroke="currentColor"
-              className="fill-primary/20 stroke-primary dark:fill-[#facc15]/20 dark:stroke-[#facc15]"
+              className="fill-primary stroke-primary dark:fill-[#facc15]/20 dark:stroke-[#facc15]"
             />
           </AreaChart>
         </ResponsiveContainer>

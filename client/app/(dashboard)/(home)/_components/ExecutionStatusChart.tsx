@@ -3,7 +3,14 @@
 import { Card } from "@/components/ui/card";
 import { WorkflowExecutionStats } from "@/types/analytics";
 import React from "react";
-import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import {
+  Bar,
+  BarChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 
 export default function ExecutionStatusChart({
   data,
@@ -30,12 +37,35 @@ export default function ExecutionStatusChart({
               axisLine={false}
               tickFormatter={(value) => `${value}`}
             />
-            <Tooltip />
+           <Tooltip
+  content={({ active, payload }) => {
+    if (active && payload && payload.length) {
+      const item = payload[0].payload;
+      return (
+        <div className="rounded-md border border-black bg-white dark:bg-black text-black dark:text-white p-3 shadow-md min-w-[160px]">
+          <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase mb-1">
+            Status
+          </div>
+          <div className="text-sm font-bold mb-2">
+            {item.status}
+          </div>
+          <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase mb-1">
+            Count
+          </div>
+          <div className="text-sm font-bold">
+            {item.count}
+          </div>
+        </div>
+      );
+    }
+    return null;
+  }}
+/>
             <Bar
               dataKey="count"
               fill="currentColor"
               radius={[4, 4, 0, 0]}
-              className="fill-primary dark:fill-black/50"
+              className="fill-primary/20 dark:fill-black/50"
             />
           </BarChart>
         </ResponsiveContainer>
