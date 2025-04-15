@@ -7,6 +7,8 @@ import { ChevronLeftIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React from "react";
 import ExecuteBtn from "./ExecuteBtn";
+import PublishBtn from "./PublishBtn";
+import UnpublishBtn from "./UnpublishBtn";
 
 interface Props {
   title: string;
@@ -27,7 +29,7 @@ export default function Topbar({
   return (
     <header className="flex p-2 border-b-2 border-separate justify-between w-full h-[60px] sticky top-0 bg-background z-10 shadow-[4px_4px_0px_black]">
       <div className="flex gap-1 flex-1">
-        <TooltipWrapper content="Back" >
+        <TooltipWrapper content="Back">
           <Button variant={"ghost"} size={"icon"} onClick={() => router.back()}>
             <ChevronLeftIcon size={20} className="dark:stroke-[#facc15]" />
           </Button>
@@ -41,15 +43,15 @@ export default function Topbar({
           )}
         </div>
       </div>
-      
       <div className="flex gap-1 flex-1 justify-end">
         {hideButtons === false && (
           <>
             <ExecuteBtn workflowId={workflowId} />
+            {isPublished && <UnpublishBtn workflowId={workflowId} />}
             {!isPublished && (
               <>
                 <SaveBtn workflowId={workflowId} />
-               
+                <PublishBtn workflowId={workflowId} />
               </>
             )}
           </>
