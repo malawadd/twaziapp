@@ -22,6 +22,7 @@ import {
     EthBalance,
 } from '@coinbase/onchainkit/identity';
 import { useAccount } from 'wagmi'
+import { TailwindPreserveSidebarStyles } from './__tailwind-preserve';
 // 🚀 Route Configuration
 const routes = [
     { href: "/", label: "Home", icon: HomeIcon },
@@ -42,6 +43,7 @@ function DesktopSidebar() {
             <div className="flex items-center justify-center p-4 border-b-4 border-black">
                 <Logo />
             </div>
+            <TailwindPreserveSidebarStyles />
 
             {address ? (
                 <>
