@@ -9,6 +9,20 @@ const config: Config = {
 		"./src/**/*.{ts,tsx}",
 		"./lib/**/*.{ts,tsx}",
 	  ],
+	  safelist: [
+		"bg-red-500",
+		"text-white",
+		"border-4",
+		"border-black",
+		"shadow-[4px_4px_0px_black]",
+		"hover:shadow-none",
+		"hover:bg-[#a3e636]",
+		"p-4",
+		"p-3",
+		"flex",
+		"items-center",
+		"justify-center"
+	  ],
   theme: {
 	container: {
 		center: true,
