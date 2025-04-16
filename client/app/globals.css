@@ -69,3 +69,25 @@
   color: #1c2511 !important;
   box-shadow: none !important;
 }
+
+[data-testid="ockConnectWallet_Connected"] {
+  background-color: #a3e636 !important;
+  color: #000 !important;
+  border-radius: 0 !important;
+  border-width: 4px !important;
+  border-color: #000 !important;
+  box-shadow: 4px 4px 0px #000 !important;
+  font-weight: 600 !important;
+  width: 100% !important;
+  justify-content: center !important;
+  transition: all 0.2s !important;
+  gap: 0.5rem !important; /* Tailwind's gap-2 */
+  display: flex !important;
+  align-items: center !important;
+}
+
+[data-testid="ockConnectWallet_Connected"]:hover {
+  background-color: #a3e636 !important;
+  color: #1c2511 !important;
+  box-shadow: none !important;
+}
