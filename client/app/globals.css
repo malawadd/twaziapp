@@ -39,4 +39,33 @@
   --shadow: var(--box-shadow-x) var(--box-shadow-y) 0px 0px var(--border);
 }
 
+@layer utilities {
+  .custom-connect {
+    @apply p-4 border-4 border-black shadow-[4px_4px_0px_black] bg-red-500 text-white font-semibold w-full justify-center transition-all duration-200 rounded-none;
+  }
 
+  .custom-connect:hover {
+    background-color: #80a545 !important;
+    color: #1c2511 !important;
+    box-shadow: none !important;
+  }
+}
+
+[data-testid="ockConnectButton"] {
+  background-color: #ef4444 !important; /* Tailwind's bg-red-500 */
+  color: #000 !important;
+  border-radius: 0 !important;
+  border-width: 4px !important;
+  border-color: #000 !important;
+  box-shadow: 4px 4px 0px #000 !important;
+  font-weight: 600 !important;
+  width: 100% !important;
+  justify-content: center !important;
+  transition: all 0.2s !important;
+}
+
+[data-testid="ockConnectButton"]:hover {
+  background-color: #beee70 !important;
+  color: #1c2511 !important;
+  box-shadow: none !important;
+}

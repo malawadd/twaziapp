@@ -65,8 +65,26 @@ function DesktopSidebar() {
                 </>
             ) : (
                 <div className="flex-1 flex items-center justify-center">
-                    <ConnectWallet className="p-4 border-4 border-black shadow-[4px_4px_0px_black] bg-red-500 " />
-                </div>
+                <ConnectWallet
+                  className="
+                    !p-4 
+                    !border-4 
+                    !border-black 
+                    !shadow-[4px_4px_0px_black] 
+                    !bg-red-500 
+                    !text-black 
+                    hover:text-[#1c2511] 
+                    !rounded-none 
+                    !font-semibold 
+                    !w-full 
+                    !justify-center 
+                    transition-all 
+                    duration-200 
+                    hover:!shadow-none 
+                    hover:!bg-[#beee70]
+                  "
+                />
+              </div>
             )}
 
             {address && (
