@@ -37,9 +37,10 @@ export default function ExecutionsTable({
   });
 
   return (
-    <div className="border rounded-lg shadow-md overflow-auto">
+    <div className="border-4 border-black  bg-white dark:bg-[#1a1a1a] overflow-auto">
+
       <Table className="h-full">
-        <TableHeader className="bg-muted">
+      <TableHeader className="bg-[#a3e636] border-b-4 border-black text-black text-">
           <TableRow>
             <TableHead>Id</TableHead>
             <TableHead>Status</TableHead>
@@ -65,7 +66,8 @@ export default function ExecutionsTable({
             return (
               <TableRow
                 key={execution.id}
-                className="cursor-pointer"
+                className="cursor-pointer transition-all duration-150 border-b-2 border-black hover:bg-blue-400 dark:hover:bg-red-700 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+
                 onClick={() => {
                   router.push(
                     `/workflow/runs/${execution.workflowId}/${execution.id}`
@@ -76,7 +78,7 @@ export default function ExecutionsTable({
                   <div className="flex flex-col">
                     <span className="font-semibold">{execution.id}</span>
                     <div className="text-muted-foreground text-xs">
-                      <span>Triggered via</span>
+                      <span>Triggered via </span>
                       <Badge variant={"outline"}>{execution.trigger}</Badge>
                     </div>
                   </div>
