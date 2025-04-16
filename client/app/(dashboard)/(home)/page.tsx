@@ -25,7 +25,7 @@ export default function HomePageWrapper({ searchParams }: { searchParams: { mont
       <div className="flex flex-col items-center justify-center min-h-screen  p-10 border-4 border-black shadow-[8px_8px_0px_black] text-black">
         <div className="max-w-3xl text-center space-y-6">
           <h1 className="text-5xl md:text-6xl font-extrabold border-4 border-black px-6 py-4 shadow-[4px_4px_0px_black] bg-[#ff6347] inline-block rotate-[-2deg]">
-            Welcome to Tawzi 🚀
+            Welcome to twazi 🚀
           </h1>
           <p className="text-lg bg-[#ffff00] border-4 border-black shadow-[4px_4px_0px_black] px-6 py-4 rotate-1 skew-y-1">
             A visual-first playground for AI-powered Web3 workflows. No code. Just vibes.
