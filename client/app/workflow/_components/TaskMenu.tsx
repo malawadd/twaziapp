@@ -24,7 +24,10 @@ export default function TaskMenu() {
           "interactions",
           "timing",
           "results",
+          "agents",
           "storage",
+          "web3",
+          "news",
         ]}
       >
 
@@ -39,7 +42,18 @@ export default function TaskMenu() {
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="extraction">
+        <AccordionItem value="news">
+          <AccordionTrigger className="font-bold border-b-2 border-black bg-gray-100 dark:bg-gray-800 dark:text-white shadow-[2px_2px_0px_black] p-2 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
+            News Tasks
+          </AccordionTrigger>
+
+          <AccordionContent className="flex flex-col gap-1">
+          <TaskMenuBtn taskType={TaskType.NEWS_AI_SEARCH} />
+            <TaskMenuBtn taskType={TaskType.NEWS_API} />
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="storage">
         <AccordionTrigger className="font-bold border-b-2 border-black bg-gray-100 dark:bg-gray-800 dark:text-white shadow-[2px_2px_0px_black] p-2 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
             Recal Tasks
           </AccordionTrigger>
@@ -52,25 +66,32 @@ export default function TaskMenu() {
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="extraction">
+        <AccordionItem value="agents">
           <AccordionTrigger className="font-bold border-b-2 border-black bg-gray-100 dark:bg-gray-800 dark:text-white shadow-[2px_2px_0px_black] p-2 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
             Agents
           </AccordionTrigger>
 
           <AccordionContent className="flex flex-col gap-1">
-          <TaskMenuBtn taskType={TaskType.REASONING_LLM} />
+            <TaskMenuBtn taskType={TaskType.REASONING_LLM} />
             <TaskMenuBtn taskType={TaskType.EXTRACT_DATA_WITH_AI} />
-            
+            <TaskMenuBtn taskType={TaskType.MARKET_ANALYST_AGENT} />
+            <TaskMenuBtn taskType={TaskType.NEWS_ANALYST_AGENT} />
+            <TaskMenuBtn taskType={TaskType.TRADING_AGENT} />
+            <TaskMenuBtn taskType={TaskType.REFLECTION_AGENT} />
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="extraction">
+        <AccordionItem value="web3">
           <AccordionTrigger className="font-bold border-b-2 border-black bg-gray-100 dark:bg-gray-800 dark:text-white shadow-[2px_2px_0px_black] p-2 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
             web3 tasks
           </AccordionTrigger>
 
           <AccordionContent className="flex flex-col gap-1">
-          <TaskMenuBtn taskType={TaskType.SMART_CONTRACT_INTERACTION} />
+
+            <TaskMenuBtn taskType={TaskType.BALANCE_FETCH} />
+            <TaskMenuBtn taskType={TaskType.RISK_MANAGEMENT} />
+            <TaskMenuBtn taskType={TaskType.ORDER_FORMATTING} />
+            <TaskMenuBtn taskType={TaskType.SMART_CONTRACT_INTERACTION} />
             
           </AccordionContent>
         </AccordionItem>
