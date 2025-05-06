@@ -10,6 +10,15 @@ import { SmartContractInteractionTask } from "./SmartContractInteractionTask";
 import { CreateRecallBucketTask } from "./CreateRecallBucketTask";
 import { StoreAIOutputInBucketTask } from "./StoreAIOutputInBucketTask";
 import { ReasoningLLMTask } from "./ReasoningLLMTask";
+import { MarketAnalystAgentTask } from "./MarketAnalystAgentTask";
+import { NewsAnalystAgentTask } from "./NewsAnalystAgentTask";
+import { TradingAgentTask } from "./TradingAgentTask";
+import { ReflectionAgentTask } from "./ReflectionAgentTask";
+import { RiskManagementTask } from "./RiskManagementTask";
+import { OrderFormattingTask } from "./OrderFormattingTask";
+import { BalanceFetchTask } from "./BalanceFetchTask";
+import { NewsAISearchTask } from "./NewsAISearchTask";
+import { NewsApiTask } from "./NewsApiTask";
 
 type Registry = {
   [K in TaskType]: WorkflowTask & { type: K };
@@ -25,4 +34,13 @@ export const TaskRegistry: Registry = {
   CREATE_RECALL_BUCKET: CreateRecallBucketTask,
   STORE_AI_OUTPUT_RECALL: StoreAIOutputInBucketTask,
   REASONING_LLM: ReasoningLLMTask,
+  MARKET_ANALYST_AGENT: MarketAnalystAgentTask,
+  NEWS_ANALYST_AGENT: NewsAnalystAgentTask,
+  TRADING_AGENT: TradingAgentTask,
+  REFLECTION_AGENT: ReflectionAgentTask,
+  RISK_MANAGEMENT: RiskManagementTask,
+  ORDER_FORMATTING: OrderFormattingTask,
+  BALANCE_FETCH: BalanceFetchTask,
+  NEWS_AI_SEARCH:NewsAISearchTask,
+  NEWS_API:NewsApiTask,
 };

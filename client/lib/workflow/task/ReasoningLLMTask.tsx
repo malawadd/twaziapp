@@ -16,7 +16,7 @@ export const ReasoningLLMTask = {
       required: true,
     },
     {
-      name: "API Key",
+      name: "SambaNoba Credentials",
       type: TaskParamType.CREDENTIAL,
       required: true,
     },

@@ -5,3 +5,6 @@ client/.env
 client/app/(dashboard)/(home)/page copy.tsx
 client/package-lock.json
 client/package-lock.json
+client/lib/helper/debug.log
+client/lib/workflow/task/debug.log
+client/types/debug.log

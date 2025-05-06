@@ -8,7 +8,7 @@ export async function ReasoningLLMExecutor(
 ): Promise<boolean> {
   try {
     const rawMessage = environment.getInput("Messages");
-    const apiKeyId = environment.getInput("API Key");
+    const apiKeyId = environment.getInput("SambaNoba Credentials");
 
     if (!rawMessage || !apiKeyId) {
       environment.log.error("Missing message content or API key input");

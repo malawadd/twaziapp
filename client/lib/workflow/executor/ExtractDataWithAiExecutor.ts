@@ -8,7 +8,7 @@ export async function ExtractDataWithAiExecutor(
   environment: ExecutionEnvironment<typeof ExtractDataWithAITask>
 ): Promise<boolean> {
   try {
-    const credentials = environment.getInput("Credentials");
+    const credentials = environment.getInput("OpenAi Credentials");
     if (!credentials) {
       environment.log.error("input->credentials not defined");
     }

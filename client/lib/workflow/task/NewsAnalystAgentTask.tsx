@@ -1,23 +1,19 @@
 import { TaskParamType, TaskType } from "@/types/task";
 import { WorkflowTask } from "@/types/workflow";
-import {
-  BrainIcon,
-  LucideProps,
-  MousePointerClick,
-  TextIcon,
-} from "lucide-react";
+import { Newspaper, LucideProps } from "lucide-react";
 
-export const ExtractDataWithAITask = {
-  type: TaskType.EXTRACT_DATA_WITH_AI,
-  label: "Extract data with AI",
-  icon: (props) => <BrainIcon className="stroke-rose-400" {...props} />,
+export const NewsAnalystAgentTask = {
+  type: TaskType.NEWS_ANALYST_AGENT,
+  label: "News Analyst Agent",
+  icon: (props: LucideProps) => <Newspaper className="stroke-yellow-400" {...props} />,
   isEntryPoint: false,
   credits: 4,
   inputs: [
     {
-      name: "Content",
+      name: "News Data",
       type: TaskParamType.STRING,
       required: true,
+      description: "Off-chain news, social media, and sentiment data (JSON)"
     },
     {
       name: "OpenAi Credentials",
@@ -27,14 +23,17 @@ export const ExtractDataWithAITask = {
     {
       name: "Prompt",
       type: TaskParamType.STRING,
-      required: true,
+      required: false,
       variant: "textarea",
+      description: "Optional custom prompt for the agent"
     },
   ] as const,
   outputs: [
     {
-      name: "Extracted data",
+      name: "News Analysis Report",
       type: TaskParamType.STRING,
+      description: "Summary of news and sentiment impact"
     },
   ] as const,
+  
 } satisfies WorkflowTask;
