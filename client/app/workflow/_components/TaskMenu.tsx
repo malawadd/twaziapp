@@ -104,7 +104,9 @@ export default function TaskMenu() {
             <TaskMenuBtn taskType={TaskType.BALANCE_FETCH} />
             <TaskMenuBtn taskType={TaskType.RISK_MANAGEMENT} />
             <TaskMenuBtn taskType={TaskType.SMART_CONTRACT_INTERACTION} />
-            <TaskMenuBtn taskType={TaskType.COINGECKO_MARKET_CHART} />
+            <TaskMenuBtn taskType={TaskType.POSITION_STATE_LOADER_ONCHAIN} />
+            <TaskMenuBtn taskType={TaskType.PAIR_SELECTOR} />
+            <TaskMenuBtn taskType={TaskType.MARKET_PREPROCESSOR} />
             
             
           </AccordionContent>

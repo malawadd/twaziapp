@@ -21,6 +21,9 @@ import { NewsAISearchTask } from "./NewsAISearchTask";
 import { NewsApiTask } from "./NewsApiTask";
 import { CoinGeckoMarketChartTask } from "./CoinGeckoMarketChartTask";
 import { MergeInputsTask } from "./MergeInputsTask";
+import { PositionStateLoaderOnChainTask } from "./PositionStateLoaderOnChainTask";
+import { PairSelectorTask } from "./PairSelectorTask";
+import { MarketDataPreProcessorTask } from "./MarketDataPreProcessorTask";
 
 type Registry = {
   [K in TaskType]: WorkflowTask & { type: K };
@@ -47,4 +50,7 @@ export const TaskRegistry: Registry = {
   NEWS_API:NewsApiTask,
   COINGECKO_MARKET_CHART:CoinGeckoMarketChartTask,
   MERGE_INPUTS: MergeInputsTask,
+  POSITION_STATE_LOADER_ONCHAIN: PositionStateLoaderOnChainTask,
+  PAIR_SELECTOR: PairSelectorTask,
+  MARKET_PREPROCESSOR: MarketDataPreProcessorTask,
 };

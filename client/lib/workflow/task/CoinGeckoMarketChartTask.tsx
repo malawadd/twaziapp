@@ -30,6 +30,11 @@ export const CoinGeckoMarketChartTask = {
   ] as const,
   outputs: [
     {
+        name: "Full JSON",
+        type: TaskParamType.STRING,
+        description: "Array of [timestamp, price] pairs"
+      },
+    {
       name: "Prices",
       type: TaskParamType.STRING,
       description: "Array of [timestamp, price] pairs"

@@ -36,6 +36,7 @@ export async function CoinGeckoMarketChartExecutor(
       return false;
     }
     const data = await res.json();
+    environment.setOutput("Full JSON", JSON.stringify(data || []));
     environment.setOutput("Prices", JSON.stringify(data.prices || []));
     environment.setOutput("Market Caps", JSON.stringify(data.market_caps || []));
     environment.setOutput("Total Volumes", JSON.stringify(data.total_volumes || []));
