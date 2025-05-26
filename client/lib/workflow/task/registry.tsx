@@ -24,6 +24,10 @@ import { MergeInputsTask } from "./MergeInputsTask";
 import { PositionStateLoaderOnChainTask } from "./PositionStateLoaderOnChainTask";
 import { PairSelectorTask } from "./PairSelectorTask";
 import { MarketDataPreProcessorTask } from "./MarketDataPreProcessorTask";
+import { BoxStrategySelectorTask } from "./BoxStrategySelectorTask";
+import { SignalGeneratorTask } from "./SignalGeneratorTask";
+import { BoxRiskManagementTask } from "./BoxRiskManagementTask";
+import { ConditionRouterTask } from "./ConditionRouterTask";
 
 type Registry = {
   [K in TaskType]: WorkflowTask & { type: K };
@@ -53,4 +57,8 @@ export const TaskRegistry: Registry = {
   POSITION_STATE_LOADER_ONCHAIN: PositionStateLoaderOnChainTask,
   PAIR_SELECTOR: PairSelectorTask,
   MARKET_PREPROCESSOR: MarketDataPreProcessorTask,
+  BOX_STRATEGY_SELECTOR:BoxStrategySelectorTask,
+  SIGNAL_GENERATOR:SignalGeneratorTask,
+  BOX_RISK_MANAGEMENT: BoxRiskManagementTask, 
+  CONDITION_ROUTER: ConditionRouterTask,
 };

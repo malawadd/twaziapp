@@ -24,6 +24,12 @@ import { MergeInputsExecutor } from "./MergeInputsExecutor";
 import { PositionStateLoaderOnChainExecutor } from "./PositionStateLoaderOnChainExecutor";
 import { PairSelectorExecutor } from "./PairSelectorExecutor";
 import { MarketDataPreProcessorExecutor } from "./MarketDataPreProcessorExecutor";
+import { BoxStrategySelectorExecutor } from "./BoxStrategySelectorExecutor";
+import { SignalGeneratorExecutor } from "./SignalGeneratorExecutor";
+import { BoxRiskManagementExecutor } from "./BoxRiskManagementExecutor";
+import { ConditionRouterExecutor } from "./ConditionRouterExecutor";
+
+
 
 type ExecutorFn<T extends WorkflowTask> = (
   environment: ExecutionEnvironment<T>
@@ -57,4 +63,8 @@ export const ExecutorRegistry: RegistryType = {
   POSITION_STATE_LOADER_ONCHAIN: PositionStateLoaderOnChainExecutor,
   PAIR_SELECTOR: PairSelectorExecutor,
   MARKET_PREPROCESSOR: MarketDataPreProcessorExecutor,
+  BOX_STRATEGY_SELECTOR: BoxStrategySelectorExecutor,
+  SIGNAL_GENERATOR:SignalGeneratorExecutor,
+  BOX_RISK_MANAGEMENT: BoxRiskManagementExecutor,
+  CONDITION_ROUTER: ConditionRouterExecutor,
 };

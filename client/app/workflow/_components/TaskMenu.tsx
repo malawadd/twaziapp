@@ -29,7 +29,8 @@ export default function TaskMenu() {
           "web3",
           "news",
           "miscs",
-          "prices"
+          "prices",
+          "strategies",
         ]}
       >
 
@@ -66,6 +67,21 @@ export default function TaskMenu() {
           </AccordionContent>
         </AccordionItem>
 
+        <AccordionItem value="strategies">
+          <AccordionTrigger className="font-bold border-b-2 border-black bg-gray-100 dark:bg-gray-800 dark:text-white shadow-[2px_2px_0px_black] p-2 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
+            Strategies Tasks
+          </AccordionTrigger>
+
+          <AccordionContent className="flex flex-col gap-1">
+          <TaskMenuBtn taskType={TaskType.BOX_STRATEGY_SELECTOR} />
+          <TaskMenuBtn taskType={TaskType.SIGNAL_GENERATOR} />
+          <TaskMenuBtn taskType={TaskType.BOX_RISK_MANAGEMENT} />
+          <TaskMenuBtn taskType={TaskType.CONDITION_ROUTER} />
+
+          </AccordionContent>
+        </AccordionItem>
+
+        
         <AccordionItem value="storage">
         <AccordionTrigger className="font-bold border-b-2 border-black bg-gray-100 dark:bg-gray-800 dark:text-white shadow-[2px_2px_0px_black] p-2 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
             Recal Tasks
