@@ -28,6 +28,8 @@ export default function TaskMenu() {
           "storage",
           "web3",
           "news",
+          "miscs",
+          "prices"
         ]}
       >
 
@@ -50,6 +52,17 @@ export default function TaskMenu() {
           <AccordionContent className="flex flex-col gap-1">
           <TaskMenuBtn taskType={TaskType.NEWS_AI_SEARCH} />
             <TaskMenuBtn taskType={TaskType.NEWS_API} />
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="prices">
+          <AccordionTrigger className="font-bold border-b-2 border-black bg-gray-100 dark:bg-gray-800 dark:text-white shadow-[2px_2px_0px_black] p-2 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
+            Prices Tasks
+          </AccordionTrigger>
+
+          <AccordionContent className="flex flex-col gap-1">
+          <TaskMenuBtn taskType={TaskType.COINGECKO_MARKET_CHART} />
+
           </AccordionContent>
         </AccordionItem>
 
@@ -90,11 +103,27 @@ export default function TaskMenu() {
 
             <TaskMenuBtn taskType={TaskType.BALANCE_FETCH} />
             <TaskMenuBtn taskType={TaskType.RISK_MANAGEMENT} />
-            <TaskMenuBtn taskType={TaskType.ORDER_FORMATTING} />
             <TaskMenuBtn taskType={TaskType.SMART_CONTRACT_INTERACTION} />
+            <TaskMenuBtn taskType={TaskType.COINGECKO_MARKET_CHART} />
+            
             
           </AccordionContent>
         </AccordionItem>
+
+        <AccordionItem value="miscs">
+          <AccordionTrigger className="font-bold border-b-2 border-black bg-gray-100 dark:bg-gray-800 dark:text-white shadow-[2px_2px_0px_black] p-2 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
+            Miscs
+          </AccordionTrigger>
+
+          <AccordionContent className="flex flex-col gap-1">
+
+            <TaskMenuBtn taskType={TaskType.MERGE_INPUTS} />
+            <TaskMenuBtn taskType={TaskType.ORDER_FORMATTING} />
+            
+          </AccordionContent>
+        </AccordionItem>
+
+        
 
       </Accordion>
     </aside>

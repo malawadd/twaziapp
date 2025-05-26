@@ -19,6 +19,8 @@ import { OrderFormattingTask } from "./OrderFormattingTask";
 import { BalanceFetchTask } from "./BalanceFetchTask";
 import { NewsAISearchTask } from "./NewsAISearchTask";
 import { NewsApiTask } from "./NewsApiTask";
+import { CoinGeckoMarketChartTask } from "./CoinGeckoMarketChartTask";
+import { MergeInputsTask } from "./MergeInputsTask";
 
 type Registry = {
   [K in TaskType]: WorkflowTask & { type: K };
@@ -43,4 +45,6 @@ export const TaskRegistry: Registry = {
   BALANCE_FETCH: BalanceFetchTask,
   NEWS_AI_SEARCH:NewsAISearchTask,
   NEWS_API:NewsApiTask,
+  COINGECKO_MARKET_CHART:CoinGeckoMarketChartTask,
+  MERGE_INPUTS: MergeInputsTask,
 };

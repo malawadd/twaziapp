@@ -17,6 +17,8 @@ export enum TaskType {
     BALANCE_FETCH = "BALANCE_FETCH",
     NEWS_AI_SEARCH = "NEWS_AI_SEARCH",
     NEWS_API = "NEWS_API",
+    COINGECKO_MARKET_CHART = "COINGECKO_MARKET_CHART",
+    MERGE_INPUTS = "MERGE_INPUTS",
 }
 
 export enum TaskParamType {

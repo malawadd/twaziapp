@@ -19,6 +19,8 @@ import { OrderFormattingExecutor } from "./OrderFormattingExecutor";
 import { BalanceFetchExecutor } from "./BalanceFetchExecutor";
 import { NewsAISearchExecutor } from "./NewsAISearchExecutor";
 import { NewsApiExecutor } from "./NewsApiExecutor";
+import { CoinGeckoMarketChartExecutor } from "./CoinGeckoMarketChartExecutor";
+import { MergeInputsExecutor } from "./MergeInputsExecutor";
 
 type ExecutorFn<T extends WorkflowTask> = (
   environment: ExecutionEnvironment<T>
@@ -47,4 +49,6 @@ export const ExecutorRegistry: RegistryType = {
   BALANCE_FETCH: BalanceFetchExecutor,
   NEWS_AI_SEARCH:NewsAISearchExecutor,
   NEWS_API: NewsApiExecutor,
+  COINGECKO_MARKET_CHART:CoinGeckoMarketChartExecutor,
+  MERGE_INPUTS: MergeInputsExecutor,
 }
