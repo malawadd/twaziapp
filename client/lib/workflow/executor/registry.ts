@@ -28,6 +28,9 @@ import { BoxStrategySelectorExecutor } from "./BoxStrategySelectorExecutor";
 import { SignalGeneratorExecutor } from "./SignalGeneratorExecutor";
 import { BoxRiskManagementExecutor } from "./BoxRiskManagementExecutor";
 import { ConditionRouterExecutor } from "./ConditionRouterExecutor";
+import { QuoteSlippageExecutor } from "./QuoteSlippageExecutor";
+import { PancakeSwapBuildTxExecutor } from "./PancakeSwapBuildTxExecutor";
+import { SignAndSendTxExecutor } from "./SignAndSendTxExecutor";
 
 
 
@@ -67,4 +70,7 @@ export const ExecutorRegistry: RegistryType = {
   SIGNAL_GENERATOR:SignalGeneratorExecutor,
   BOX_RISK_MANAGEMENT: BoxRiskManagementExecutor,
   CONDITION_ROUTER: ConditionRouterExecutor,
+  QUOTE_SLIPPAGE: QuoteSlippageExecutor,
+  BUILD_TX: PancakeSwapBuildTxExecutor,
+  SIGN_AND_SEND_TX: SignAndSendTxExecutor,
 };

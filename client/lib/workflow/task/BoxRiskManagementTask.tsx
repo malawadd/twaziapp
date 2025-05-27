@@ -12,6 +12,8 @@ export const BoxRiskManagementTask = {
     { name: "Trade Plan", type: TaskParamType.STRING, required: true },
     { name: "Position State", type: TaskParamType.STRING, required: true },
     { name: "Feature Frame", type: TaskParamType.STRING, required: true },
+    { name: "Pair Config", type: TaskParamType.STRING, required: true,
+      description: "JSON { assetToken, quoteToken } from Pair Selector" },
     { name: "Max Position (%)", type: TaskParamType.STRING, required: false,
       description: "Max quote balance fraction to deploy (default 0.25)" },
     { name: "Max Risk (%)", type: TaskParamType.STRING, required: false,

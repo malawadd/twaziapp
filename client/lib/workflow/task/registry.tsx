@@ -28,6 +28,9 @@ import { BoxStrategySelectorTask } from "./BoxStrategySelectorTask";
 import { SignalGeneratorTask } from "./SignalGeneratorTask";
 import { BoxRiskManagementTask } from "./BoxRiskManagementTask";
 import { ConditionRouterTask } from "./ConditionRouterTask";
+import { QuoteSlippageTask } from "./QuoteSlippageTask";
+import { PancakeSwapBuildTxTask } from "./PancakeSwapBuildTxTask";
+import { SignAndSendTxTask } from "./SignAndSendTxTask";
 
 type Registry = {
   [K in TaskType]: WorkflowTask & { type: K };
@@ -61,4 +64,7 @@ export const TaskRegistry: Registry = {
   SIGNAL_GENERATOR:SignalGeneratorTask,
   BOX_RISK_MANAGEMENT: BoxRiskManagementTask, 
   CONDITION_ROUTER: ConditionRouterTask,
+  QUOTE_SLIPPAGE: QuoteSlippageTask,
+  BUILD_TX:PancakeSwapBuildTxTask,
+  SIGN_AND_SEND_TX:SignAndSendTxTask,
 };

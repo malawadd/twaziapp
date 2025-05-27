@@ -5,6 +5,7 @@ import {
   createPublicClient, http, zeroAddress, getContract, toHex, Address
 } from "viem";
 import { PositionStateLoaderOnChainTask } from "@/lib/workflow/task/PositionStateLoaderOnChainTask";
+import { privateKeyToAccount } from "viem/accounts";
 
 const erc20Abi = [
   { name:"balanceOf",inputs:[{type:"address"}],outputs:[{type:"uint256"}],stateMutability:"view",type:"function" },
@@ -20,9 +21,13 @@ export async function PositionStateLoaderOnChainExecutor(environment: ExecutionE
   try {
     /* 1. Wallet address */
     const pkCred = await prisma.credential.findUnique({ where:{ id: environment.getInput("Wallet Credential") }});
-    if (!pkCred){ environment.log.error("Wallet credential not found"); return false; }
+    if (!pkCred) {
+    environment.log.error("Wallet credential not found");
+    return false;
+    }
     const privKey = symmetricDecrypt(pkCred.value).trim();
-    const address = `0x${privKey.slice(-40)}`.toLowerCase() as Address;
+    const account = privateKeyToAccount(`0x${privKey}`);
+    const address = account.address as Address;
 
     /* 2. Setup client */
     const rpc = environment.getInput("RPC Endpoint") || "https://56.rpc.thirdweb.com";

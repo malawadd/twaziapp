@@ -123,6 +123,10 @@ export default function TaskMenu() {
             <TaskMenuBtn taskType={TaskType.POSITION_STATE_LOADER_ONCHAIN} />
             <TaskMenuBtn taskType={TaskType.PAIR_SELECTOR} />
             <TaskMenuBtn taskType={TaskType.MARKET_PREPROCESSOR} />
+            <TaskMenuBtn taskType={TaskType.QUOTE_SLIPPAGE} />
+            <TaskMenuBtn taskType={TaskType.BUILD_TX} />
+            <TaskMenuBtn taskType={TaskType.SIGN_AND_SEND_TX} />
+            
             
             
           </AccordionContent>
