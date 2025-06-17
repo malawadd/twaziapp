@@ -23,12 +23,13 @@ import {
 } from '@coinbase/onchainkit/identity';
 import { useAccount } from 'wagmi'
 import { TailwindPreserveSidebarStyles } from './__tailwind-preserve';
+import UserAvailableCreditsBadge from './UserAvailableCreditsBadge';
 // 🚀 Route Configuration
 const routes = [
     { href: "/", label: "Home", icon: HomeIcon },
     { href: "/workflows", label: "Workflows", icon: Layers2Icon },
     { href: "/credentials", label: "Credentials", icon: ShieldCheckIcon },
-    { href: "/billings", label: "Billings", icon: CoinsIcon },
+    // { href: "/billings", label: "Billings", icon: CoinsIcon },
 ];
 
 function DesktopSidebar() {
@@ -46,8 +47,9 @@ function DesktopSidebar() {
             <div className="flex flex-col flex-1">
                 {address ? (
                     <>
-                        <div className="p-2 font-bold text-center border-b-4 border-black">TODO CREDIT</div>
-                        <div className="flex flex-col p-2 gap-4 flex-1">
+<div className="p-2 font-bold text-center border-b-4 border-black">
+                        <UserAvailableCreditsBadge />
+                        </div>                        <div className="flex flex-col p-2 gap-4 flex-1">
                             {routes.map((route) => (
                                 <Link
                                     key={route.href}

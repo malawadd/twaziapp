@@ -2,37 +2,35 @@
 import { useAccount } from "wagmi";
 import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { CheckUserExists } from "@/actions/auth/checkUserExists";
 
 export default function WalletListener() {
   const { address, isConnected } = useAccount();
   const router = useRouter();
-  // Explicitly type the ref to accept boolean or null.
   const prevIsConnected = useRef<boolean | null>(null);
 
   useEffect(() => {
-    // On first render, prevIsConnected.current is null.
-    if (prevIsConnected.current === null) {
-      prevIsConnected.current = isConnected;
-      if (isConnected && address) {
-        fetch("/api/save-address", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ address }),
-        }).then(() => {
-          router.refresh();
-        });
+    // Helper function to check user and redirect if needed
+    const checkUserAndRedirect = async (addr: string) => {
+      const exists = await CheckUserExists();
+      if (!exists) {
+        router.push("/setup");
       }
-      return;
-    }
+      router.refresh();
+    };
 
-    // If the wallet has just connected, save the address
-    if (!prevIsConnected.current && isConnected && address) {
+    // On first render or when wallet connects
+    if (
+      (prevIsConnected.current === null || !prevIsConnected.current) &&
+      isConnected &&
+      address
+    ) {
       fetch("/api/save-address", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ address }),
-      }).then(() => {
-        router.refresh();
+      }).then(async () => {
+        await checkUserAndRedirect(address);
       });
     }
 
