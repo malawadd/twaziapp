@@ -9,6 +9,7 @@ import React from "react";
 import ExecuteBtn from "./ExecuteBtn";
 import PublishBtn from "./PublishBtn";
 import UnpublishBtn from "./UnpublishBtn";
+import NavigationTabs from "./NavigationTabs";
 
 interface Props {
   title: string;
@@ -43,6 +44,7 @@ export default function Topbar({
           )}
         </div>
       </div>
+      <NavigationTabs workflowId={workflowId} />
       <div className="flex gap-1 flex-1 justify-end">
         {hideButtons === false && (
           <>
