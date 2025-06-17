@@ -31,6 +31,14 @@ import { ConditionRouterExecutor } from "./ConditionRouterExecutor";
 import { QuoteSlippageExecutor } from "./QuoteSlippageExecutor";
 import { PancakeSwapBuildTxExecutor } from "./PancakeSwapBuildTxExecutor";
 import { SignAndSendTxExecutor } from "./SignAndSendTxExecutor";
+import { FillInputExecutor } from "./FillInputExecutor";
+import { AddPropertyToJsonExecutor } from "./AddPropertyToJsonExecutor";
+import { ClickElementExecutor } from "./ClickElementExecutor";
+import { DeliverViaWebhookExecutor } from "./DeliverViaWebhookExecutor";
+import { NavigateUrlExecutor } from "./NavigateUrlExecutor";
+import { ReadPropertyFromJsonExecutor } from "./ReadPropertyFromJsonExecutor";
+import { ScrollToElementExecutor } from "./ScrollToElementExecutor";
+import { WaitForElementExecutor } from "./WaitForElementExecutor";
 
 
 
@@ -73,4 +81,13 @@ export const ExecutorRegistry: RegistryType = {
   QUOTE_SLIPPAGE: QuoteSlippageExecutor,
   BUILD_TX: PancakeSwapBuildTxExecutor,
   SIGN_AND_SEND_TX: SignAndSendTxExecutor,
+  FILL_INPUT: FillInputExecutor,
+  CLICK_ELEMENT: ClickElementExecutor,
+  WAIT_FOR_EMELEMENT: WaitForElementExecutor,
+  DELIVER_VIA_WEBHOOK: DeliverViaWebhookExecutor,
+  READ_PROPERTY_FROM_JSON: ReadPropertyFromJsonExecutor,
+  ADD_PROPERTY_TO_JSON: AddPropertyToJsonExecutor,
+  NAVIGATE_URL: NavigateUrlExecutor,
+  SCROLL_TO_ELEMENT: ScrollToElementExecutor,
+
 };

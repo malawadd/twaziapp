@@ -31,6 +31,14 @@ import { ConditionRouterTask } from "./ConditionRouterTask";
 import { QuoteSlippageTask } from "./QuoteSlippageTask";
 import { PancakeSwapBuildTxTask } from "./PancakeSwapBuildTxTask";
 import { SignAndSendTxTask } from "./SignAndSendTxTask";
+import { AddPropertyToJsonTask } from "./AddPropertyToJson";
+import { ClickElementTask } from "./ClickElement";
+import { DeliverViaWebhookTask } from "./DeliverViaWebhook";
+import { FillInputTask } from "./FillInput";
+import { NavigateUrlTask } from "./NavigateUrlTask";
+import { ReadPropertyFromJsonTask } from "./ReadPropertyFromJson";
+import { ScrollToElementTask } from "./ScrollToElement";
+import { WaitForElementTask } from "./WaitForElement";
 
 type Registry = {
   [K in TaskType]: WorkflowTask & { type: K };
@@ -67,4 +75,12 @@ export const TaskRegistry: Registry = {
   QUOTE_SLIPPAGE: QuoteSlippageTask,
   BUILD_TX:PancakeSwapBuildTxTask,
   SIGN_AND_SEND_TX:SignAndSendTxTask,
+  FILL_INPUT: FillInputTask,
+  CLICK_ELEMENT: ClickElementTask,
+  WAIT_FOR_EMELEMENT: WaitForElementTask,
+  DELIVER_VIA_WEBHOOK: DeliverViaWebhookTask,
+  READ_PROPERTY_FROM_JSON: ReadPropertyFromJsonTask,
+  ADD_PROPERTY_TO_JSON: AddPropertyToJsonTask,
+  NAVIGATE_URL: NavigateUrlTask,
+  SCROLL_TO_ELEMENT: ScrollToElementTask,
 };
