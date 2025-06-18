@@ -36,26 +36,36 @@ client/
 
 ## Setup Instructions
 
-1. Install dependencies:
+
+Copy the example and fill in your secrets:
+
 ```bash
-npm install
+cp .env.example .env
 ```
 
-2. Set up the database:
-```bash
-npx prisma generate
-npx prisma migrate dev
-```
+Fill in the `.env` file with the required keys, for example:
 
-3. Create a `.env` file with required environment variables:
-```
+```env
+# Required by OnchainKit for wallet connections
+NEXT_PUBLIC_ONCHAINKIT_API_KEY=your_onchainkit_api_key
+
+# Local SQLite database path
 DATABASE_URL="file:./dev.db"
-NETWORK_ID="base-sepolia"
+
+# Secret used for verifying webhook payloads (optional for now)
+API_SECRET=your_api_secret_here
+
+# Used for AES-256 encryption of credentials
+ENCRYPTION_KEY=your_32_byte_hex_key
+
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
 ```
 
-4. Start the development server:
+Generate the encryption key using:
+
 ```bash
-npm run dev
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 ```
 
 ## Key Components
